@@ -56,6 +56,7 @@ public class ModuleManager {
         newMod(new FastPlace());
         newMod(new FreeCam());
         newMod(new ShrekScript());
+	newMod(new Flip());    
 
         //RENDER
         newMod(new Fullbright());
