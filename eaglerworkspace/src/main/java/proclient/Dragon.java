@@ -1,44 +1,50 @@
-package proclient;
-
+package me.gamrboy4life.paradox;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import proclient.clickgui.ClickGui;
-import proclient.command.CommandManager;
-import proclient.event.Event;
-import proclient.event.events.EventChat;
-import proclient.module.ModuleManager;
-import proclient.settings.SettingsManager;
-import proclient.module.Module;
-import proclient.ui.ArrayList;
-import proclient.ui.DragScreen;
-//import proclient.ui.TabGui;
-import net.lax1dude.eaglercraft.v1_8.Display;
+import org.lwjgl.opengl.Display;
 
-public class Dragon {
-    public static String name = "Dragon", version = "3.0", creator = "Fatal";
-    public static Dragon instance = new Dragon();
-    public static ArrayList arraylist = new ArrayList();
-    public static ModuleManager moduleManager;
-    public static CommandManager cmdManager;
-    public static ClickGui clickgui;
-    public static SettingsManager setmgr;
-    public static DragScreen drag;
+import de.Hero.clickgui.ClickGUI;
+import de.Hero.settings.SettingsManager;
+import me.gamrboy4life.paradox.alt.AltManager;
+import me.gamrboy4life.paradox.extensions.DiscordRP;
+import me.gamrboy4life.paradox.module.Module;
+import me.gamrboy4life.paradox.module.ModuleManager;
 
-    
-
-    public static void startClient() {
-        setmgr = new SettingsManager();
-        moduleManager = new ModuleManager();
-        cmdManager = new CommandManager();
-        clickgui = new ClickGui();
-
-        Display.setTitle(name + " " + version + "by " + creator);
-    }
-
-    public final static ClickGui getClickgui() { return clickgui; }
-    public final static DragScreen getDragscreen()  { return drag; }
-
-
-
+public class Paradox {
+	
+	public static String name = "Paradox", version = "1.8.8", creator = "Gamrboy4life";
+	
+	public static Paradox instance = new Paradox();
+	
+	public static SettingsManager settingsManager;
+	public static ModuleManager moduleManager;
+	public static ClickGUI clickGUI;
+	public static AltManager altManager;
+	
+	public static DiscordRP discordRP = new DiscordRP();
+	public static CopyOnWriteArrayList<Module> modules = new CopyOnWriteArrayList<Module>();
+	
+	public static void startClient() {
+		settingsManager = new SettingsManager();
+		moduleManager = new ModuleManager();
+		clickGUI = new ClickGUI();
+		altManager = new AltManager();
+		discordRP.start();
+		
+		
+		
+		
+		
+		
+		
+		
+		Display.setTitle(name + " " + version + " by " + creator);
+	}
+	
+	public static DiscordRP getDiscordRP() {
+		return discordRP;
+	}
+	
+	
 }
